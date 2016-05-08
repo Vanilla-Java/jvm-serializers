@@ -4,8 +4,10 @@ import serializers.avro.AvroGeneric;
 import serializers.avro.AvroSpecific;
 import serializers.cks.CksBinary;
 import serializers.cks.CksText;
+import serializers.dslplatform.DSLPlatform;
 import serializers.jackson.*;
-import serializers.javaxjson.*;
+import serializers.javaxjson.JavaxJsonStreamGlassfish;
+import serializers.javaxjson.JavaxJsonTreeGlassfish;
 import serializers.json.*;
 import serializers.kryo.Kryo;
 import serializers.msgpack.MsgPack;
@@ -15,7 +17,6 @@ import serializers.protostuff.Protostuff;
 import serializers.protostuff.ProtostuffJson;
 import serializers.wobly.Wobly;
 import serializers.xml.*;
-import serializers.dslplatform.DSLPlatform;
 
 /**
  * Full test of various codecs, using a single <code>MediaItem</code>
@@ -36,7 +37,7 @@ public class BenchmarkRunner extends MediaItemBenchmark
         JavaManual.register(groups);
         Stephenerialization.register(groups);
 
-        Scala.register(groups);
+//        Scala.register(groups);
 // hessian, kryo and wobly are Java object serializations
         Hessian.register(groups);
         Kryo.register(groups);
