@@ -1,4 +1,4 @@
-package serializers.wire;
+package serializers.wire.nocode;
 
 import data.media.Media.Player;
 import net.openhft.chronicle.wire.AbstractMarshallable;

@@ -1,16 +1,15 @@
-package serializers.wire;
+package serializers.wire.nocode;
 
 import net.openhft.chronicle.wire.AbstractMarshallable;
 
 import java.util.List;
 
 public class WMediaContent extends AbstractMarshallable {
-    List<WImage> images;
     WMedia media;
+    List<WImage> images;
 
-
-    public WMediaContent(List<WImage> images, WMedia media) {
-        this.images = images;
+    public WMediaContent(WMedia media, List<WImage> images) {
         this.media = media;
+        this.images = images;
     }
 }
