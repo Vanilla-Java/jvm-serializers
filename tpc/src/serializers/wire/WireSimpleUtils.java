@@ -49,7 +49,7 @@ public class WireSimpleUtils {
         @Override
         public MediaContent deserialize(byte[] array) throws Exception {
             try {
-                wire.bytes().clear();
+                wire.clear();
                 wire.bytes().write(array);
                 Wires.readMarshallable(content, wire, true);
                 return content;

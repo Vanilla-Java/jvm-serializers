@@ -82,7 +82,7 @@ public class MarshallableWireSimpleUtils {
         @Override
         public WMediaContent deserialize(byte[] array) throws Exception {
             try {
-                wire.bytes().clear();
+                wire.clear();
                 wire.bytes().write(array);
                 content.readMarshallable(wire);
                 return content;
