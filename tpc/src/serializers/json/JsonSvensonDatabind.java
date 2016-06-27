@@ -1,11 +1,12 @@
 package serializers.json;
 
-import java.io.*;
-
-import serializers.*;
-
 import data.media.Image;
 import data.media.MediaContent;
+import serializers.*;
+
+import java.io.IOException;
+
+import static java.nio.charset.StandardCharsets.ISO_8859_1;
 
 /**
  * This serializer uses svenson for JSON data binding.
@@ -58,7 +59,7 @@ public class JsonSvensonDatabind
     public byte[] serialize(T data) throws IOException
     {
         String result = _jsonWriter.forValue(data);
-        return result.getBytes();
+        return result.getBytes(ISO_8859_1);
     }
   }
 }

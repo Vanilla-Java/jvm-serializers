@@ -1,26 +1,25 @@
 package serializers.cks;
 
-import java.io.*;
-
 import serializers.Serializer;
 import serializers.TestGroups;
 import serializers.cks.media.MediaContent;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.StringReader;
+
+import static java.nio.charset.StandardCharsets.ISO_8859_1;
+
 public class CksText
 {
-	public static void register(TestGroups groups)
-	{
-		groups.media.add(Cks.mediaTransformer, MediaSerializer, "cks");
-	}
-	
-	// ------------------------------------------------------------
-	// Serializers
+    private final static byte[] FOUR_ATS = "@@@@".getBytes(ISO_8859_1);
 
-        private final static byte[] FOUR_ATS = "@@@@".getBytes();
-	
+    // ------------------------------------------------------------
+	// Serializers
 	public static final Serializer<MediaContent> MediaSerializer = new Serializer<MediaContent>()
 	{
-	    
+
 		public MediaContent deserialize(byte[] array) throws Exception
 		{
 			return MediaContent._TextReader.readFromByteArray(array);
@@ -65,5 +64,9 @@ public class CksText
                     }
                 }
 	};
+
+    public static void register(TestGroups groups) {
+        groups.media.add(Cks.mediaTransformer, MediaSerializer, "cks");
+    }
 }
 
